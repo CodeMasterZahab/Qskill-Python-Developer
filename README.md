@@ -1,120 +1,112 @@
-Sentiment Analysis Web App (Flask + TextBlob)
+Matrix Operations Tool (Python + NumPy)
 
-A simple and interactive web application that performs sentiment analysis on user-entered text using Flask and TextBlob.
-The app classifies text as Positive, Negative, or Neutral and displays polarity and subjectivity scores.
+A simple command-line Matrix Operations Tool built using Python and NumPy.
+This tool allows users to perform common matrix operations interactively with neatly formatted outputs.
 
 🚀 Features
 
-✔ User-friendly web interface
-✔ Real-time sentiment analysis
-✔ Displays:
+The program supports the following matrix operations:
 
-Sentiment Label (Positive / Negative / Neutral)
+➕ Matrix Addition
 
-Polarity Score (-1 to +1)
+➖ Matrix Subtraction
 
-Subjectivity Score (0 to 1)
-✔ Built using Python Flask backend
-✔ Styled frontend using HTML & CSS
+✖ Matrix Multiplication
 
-🧠 What is Sentiment Analysis?
+🔄 Matrix Transpose
 
-Sentiment Analysis is a Natural Language Processing (NLP) technique used to determine whether a piece of text expresses:
+📐 Determinant of a Matrix
 
-Positive emotion 😊
+❌ Exit the program
 
-Negative emotion 😞
+All results are displayed in a clean table format using the tabulate library.
 
-Neutral tone 😐
-
-This app uses TextBlob, a Python NLP library, to calculate:
-
-Metric	Meaning
-Polarity	Measures positivity/negativity (-1 = negative, +1 = positive)
-Subjectivity	Measures opinion vs fact (0 = factual, 1 = opinionated)
 🛠 Technologies Used
 
 Python 3
 
-Flask – Web framework
+NumPy – for matrix computations
 
-TextBlob – Sentiment analysis
+Tabulate – for formatted table display in terminal
 
-HTML5 & CSS3 – Frontend design
-
-📁 Project Structure
-sentiment_app/
-│
-├── app.py              # Flask backend logic
-├── requirements.txt    # Required Python libraries
-└── templates/
-    └── index.html      # Frontend UI
-
-⚙️ Installation & Setup
-1️⃣ Clone or Download Project
-git clone https://github.com/your-username/sentiment-analysis-flask.git
-cd sentiment-analysis-flask
+📦 Installation
+1️⃣ Clone or Download the Project
+git clone https://github.com/CodeMasterZahab/matrix-operations-tool.git
+cd matrix-operations-tool
 
 
-(Or download and extract the folder manually.)
+(Or simply download the .py file and place it in a folder.)
 
-2️⃣ Install Dependencies
-pip install -r requirements.txt
-python -m textblob.download_corpora
+2️⃣ Install Required Libraries
+pip install numpy tabulate
 
-3️⃣ Run the Application
-python app.py
+▶️ How to Run
+python matrix_tool.py
 
+You will see a menu like:
+--- MATRIX OPERATIONS TOOL ---
+1. Add  2. Subtract  3. Multiply  4. Transpose  5. Determinant  6. Exit
 
-Now open your browser and go to:
+Enter the number corresponding to the operation you want to perform.
 
-http://127.0.0.1:5000/
+🧑‍💻 How It Works
+🔢 Matrix Input
 
-🧪 Example Usage
+You will be asked to enter:
+Number of rows
+Number of columns
+Matrix elements row by row (space-separated)
 
-Input Text:
+Example:
+Enter number of rows: 2
+Enter number of columns: 2
+Row 1: 1 2
+Row 2: 3 4
 
-I absolutely love this project. It's amazing!
+🧮 Supported Operations Explained
+➕ Addition
+Adds two matrices of the same dimensions.
 
-Output:
+➖ Subtraction
+Subtracts Matrix B from Matrix A (same dimensions required).\
 
-Sentiment: Positive 😊
+✖ Multiplication
+Performs matrix multiplication using NumPy's dot product rule.
 
-Polarity: 0.8
+🔄 Transpose
+Converts rows into columns.
 
-Subjectivity: 0.75
+📐 Determinant
+Calculates determinant only for square matrices.
+If a non-square matrix is entered, the program shows:
+Error: Determinant requires a square matrix.
 
-🧩 How It Works
+⚠️ Error Handling
+The program safely handles:
+Invalid matrix sizes for operations
+Incorrect input formats
+Determinant calculation for non-square matrices
+Errors are displayed without crashing the program.
 
-User enters text in the web form
+📸 Sample Output
+Result:
+╒═══════╤═══════╕
+│  6.0  │  8.0  │
+├───────┼───────┤
+│ 10.0  │ 12.0  │
+╘═══════╧═══════╛
 
-Flask sends the text to the backend
+Future Improvements
+Add Inverse of a Matrix
+Add Eigenvalues & Eigenvectors
+Add Save/Load matrices from file
+Build a GUI version
 
-TextBlob analyzes the text sentiment
+ Educational Purpose
+This project is great for:
+Understanding matrix mathematics
+Practicing NumPy operations
+Learning Python CLI application development
 
-Polarity and subjectivity are calculated
-
-Sentiment is classified and shown on the page
-
-📌 Future Improvements
-
-🔹 Add sentiment-based color themes
-🔹 Store history of analyzed texts
-🔹 Add graphical charts for sentiment
-🔹 Deploy on cloud (Render / Heroku / PythonAnywhere)
-
-🎓 Learning Outcomes
-
-This project helps you understand:
-
-Flask web development
-
-Integrating NLP into web apps
-
-Using TextBlob for sentiment analysis
-
-Handling forms and dynamic templates
-
-📄 License
-
-This project is open-source and free to use for educational purposes.
+ License
+This project is open-source and free to use for learning purposes.
