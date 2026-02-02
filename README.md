@@ -1,135 +1,120 @@
-# Qskill-Python-Developer
+Sentiment Analysis Web App (Flask + TextBlob)
 
-Retail Store Sales Data Analysis using Pandas & Matplotlib
- Project Overview
+A simple and interactive web application that performs sentiment analysis on user-entered text using Flask and TextBlob.
+The app classifies text as Positive, Negative, or Neutral and displays polarity and subjectivity scores.
 
-This project demonstrates how to use Python’s Pandas library to load and analyze a CSV dataset, and Matplotlib/Seaborn to visualize the data. The dataset used is a simulated Retail Store Product Sales Dataset from Kaggle.
+🚀 Features
 
-The main objectives are:
+✔ User-friendly web interface
+✔ Real-time sentiment analysis
+✔ Displays:
 
-Load a CSV file.
+Sentiment Label (Positive / Negative / Neutral)
 
-Perform basic data analysis.
+Polarity Score (-1 to +1)
 
-Calculate the average of a selected numeric column.
+Subjectivity Score (0 to 1)
+✔ Built using Python Flask backend
+✔ Styled frontend using HTML & CSS
 
-Create visualizations (bar chart, scatter plot, heatmap).
+🧠 What is Sentiment Analysis?
 
-Derive meaningful insights from the data.
+Sentiment Analysis is a Natural Language Processing (NLP) technique used to determine whether a piece of text expresses:
 
- Technologies Used
+Positive emotion 😊
+
+Negative emotion 😞
+
+Neutral tone 😐
+
+This app uses TextBlob, a Python NLP library, to calculate:
+
+Metric	Meaning
+Polarity	Measures positivity/negativity (-1 = negative, +1 = positive)
+Subjectivity	Measures opinion vs fact (0 = factual, 1 = opinionated)
+🛠 Technologies Used
 
 Python 3
 
-Pandas – for data manipulation and analysis
+Flask – Web framework
 
-Matplotlib – for plotting graphs
+TextBlob – Sentiment analysis
 
-Seaborn – for heatmap visualization
+HTML5 & CSS3 – Frontend design
 
-KaggleHub – for downloading the dataset
+📁 Project Structure
+sentiment_app/
+│
+├── app.py              # Flask backend logic
+├── requirements.txt    # Required Python libraries
+└── templates/
+    └── index.html      # Frontend UI
 
- Dataset
-
-Dataset Source:
-Retail Store Product Sales Simulation Dataset (Kaggle)
-
-The dataset contains simulated sales data for retail products including numeric and categorical features such as:
-
-Product details
-
-Sales quantities
-
-Prices
-
-Revenue-related fields
-
- Installation & Setup
-
-Install the required libraries:
-
-pip install pandas matplotlib seaborn kagglehub
-
- How to Run the Project
-
-Clone or download this repository.
-
-Make sure the dataset file RetailStoreProductSalesDataset.csv is in the same directory.
-
-Run the Python script:
-
-python main.py
+⚙️ Installation & Setup
+1️⃣ Clone or Download Project
+git clone https://github.com/your-username/sentiment-analysis-flask.git
+cd sentiment-analysis-flask
 
 
-(Replace main.py with your actual file name.)
+(Or download and extract the folder manually.)
 
- Features Implemented
-1. Load CSV File
-df = pd.read_csv("RetailStoreProductSalesDataset.csv")
+2️⃣ Install Dependencies
+pip install -r requirements.txt
+python -m textblob.download_corpora
+
+3️⃣ Run the Application
+python app.py
 
 
-Loads the dataset into a Pandas DataFrame.
+Now open your browser and go to:
 
-2. Basic Data Analysis
+http://127.0.0.1:5000/
 
-Displays first 5 rows.
+🧪 Example Usage
 
-Shows dataset info and statistics.
+Input Text:
 
-Automatically selects a numeric column and calculates its average.
+I absolutely love this project. It's amazing!
 
-3. Bar Chart
+Output:
 
-Shows the top 10 most frequent values in the selected numeric column.
+Sentiment: Positive 😊
 
-4. Scatter Plot
+Polarity: 0.8
 
-Plots a scatter graph between the first two numeric columns to observe relationships.
+Subjectivity: 0.75
 
-5. Heatmap
+🧩 How It Works
 
-Displays a correlation matrix between all numeric columns using Seaborn.
+User enters text in the web form
 
- Sample Visualizations
+Flask sends the text to the backend
 
-The project generates:
+TextBlob analyzes the text sentiment
 
-Bar Chart → Distribution of values
+Polarity and subjectivity are calculated
 
-Scatter Plot → Relationship between two variables
+Sentiment is classified and shown on the page
 
-Heatmap → Correlation between features
+📌 Future Improvements
 
- Insights & Observations
+🔹 Add sentiment-based color themes
+🔹 Store history of analyzed texts
+🔹 Add graphical charts for sentiment
+🔹 Deploy on cloud (Render / Heroku / PythonAnywhere)
 
-From the analysis:
+🎓 Learning Outcomes
 
-The average value of the selected numeric column gives a general idea of the dataset’s central tendency.
+This project helps you understand:
 
-The bar chart helps identify the most frequent values.
+Flask web development
 
-The scatter plot shows whether two variables are positively/negatively related.
+Integrating NLP into web apps
 
-The heatmap highlights which features are strongly correlated and which are independent.
+Using TextBlob for sentiment analysis
 
-These insights help in understanding sales patterns and relationships between different variables in the retail dataset.
+Handling forms and dynamic templates
 
-Future Improvements
+📄 License
 
-Add filtering by product category.
-
-Perform time-series analysis.
-
-Build a dashboard using Streamlit or Power BI.
-
-Apply machine learning for sales prediction.
-
- Author
-
-Z M
-B.Sc Computer Science Student
-Project on Data Analysis using Python
-
- License
-
-This project is for educational purposes and uses a publicly available dataset from Kaggle.
+This project is open-source and free to use for educational purposes.
