@@ -1,135 +1,112 @@
-# Qskill-Python-Developer
+Matrix Operations Tool (Python + NumPy)
 
-Retail Store Sales Data Analysis using Pandas & Matplotlib
- Project Overview
+A simple command-line Matrix Operations Tool built using Python and NumPy.
+This tool allows users to perform common matrix operations interactively with neatly formatted outputs.
 
-This project demonstrates how to use Python’s Pandas library to load and analyze a CSV dataset, and Matplotlib/Seaborn to visualize the data. The dataset used is a simulated Retail Store Product Sales Dataset from Kaggle.
+🚀 Features
 
-The main objectives are:
+The program supports the following matrix operations:
 
-Load a CSV file.
+➕ Matrix Addition
 
-Perform basic data analysis.
+➖ Matrix Subtraction
 
-Calculate the average of a selected numeric column.
+✖ Matrix Multiplication
 
-Create visualizations (bar chart, scatter plot, heatmap).
+🔄 Matrix Transpose
 
-Derive meaningful insights from the data.
+📐 Determinant of a Matrix
 
- Technologies Used
+❌ Exit the program
+
+All results are displayed in a clean table format using the tabulate library.
+
+🛠 Technologies Used
 
 Python 3
 
-Pandas – for data manipulation and analysis
+NumPy – for matrix computations
 
-Matplotlib – for plotting graphs
+Tabulate – for formatted table display in terminal
 
-Seaborn – for heatmap visualization
-
-KaggleHub – for downloading the dataset
-
- Dataset
-
-Dataset Source:
-Retail Store Product Sales Simulation Dataset (Kaggle)
-
-The dataset contains simulated sales data for retail products including numeric and categorical features such as:
-
-Product details
-
-Sales quantities
-
-Prices
-
-Revenue-related fields
-
- Installation & Setup
-
-Install the required libraries:
-
-pip install pandas matplotlib seaborn kagglehub
-
- How to Run the Project
-
-Clone or download this repository.
-
-Make sure the dataset file RetailStoreProductSalesDataset.csv is in the same directory.
-
-Run the Python script:
-
-python main.py
+📦 Installation
+1️⃣ Clone or Download the Project
+git clone https://github.com/CodeMasterZahab/matrix-operations-tool.git
+cd matrix-operations-tool
 
 
-(Replace main.py with your actual file name.)
+(Or simply download the .py file and place it in a folder.)
 
- Features Implemented
-1. Load CSV File
-df = pd.read_csv("RetailStoreProductSalesDataset.csv")
+2️⃣ Install Required Libraries
+pip install numpy tabulate
 
+▶️ How to Run
+python matrix_tool.py
 
-Loads the dataset into a Pandas DataFrame.
+You will see a menu like:
+--- MATRIX OPERATIONS TOOL ---
+1. Add  2. Subtract  3. Multiply  4. Transpose  5. Determinant  6. Exit
 
-2. Basic Data Analysis
+Enter the number corresponding to the operation you want to perform.
 
-Displays first 5 rows.
+🧑‍💻 How It Works
+🔢 Matrix Input
 
-Shows dataset info and statistics.
+You will be asked to enter:
+Number of rows
+Number of columns
+Matrix elements row by row (space-separated)
 
-Automatically selects a numeric column and calculates its average.
+Example:
+Enter number of rows: 2
+Enter number of columns: 2
+Row 1: 1 2
+Row 2: 3 4
 
-3. Bar Chart
+🧮 Supported Operations Explained
+➕ Addition
+Adds two matrices of the same dimensions.
 
-Shows the top 10 most frequent values in the selected numeric column.
+➖ Subtraction
+Subtracts Matrix B from Matrix A (same dimensions required).\
 
-4. Scatter Plot
+✖ Multiplication
+Performs matrix multiplication using NumPy's dot product rule.
 
-Plots a scatter graph between the first two numeric columns to observe relationships.
+🔄 Transpose
+Converts rows into columns.
 
-5. Heatmap
+📐 Determinant
+Calculates determinant only for square matrices.
+If a non-square matrix is entered, the program shows:
+Error: Determinant requires a square matrix.
 
-Displays a correlation matrix between all numeric columns using Seaborn.
+⚠️ Error Handling
+The program safely handles:
+Invalid matrix sizes for operations
+Incorrect input formats
+Determinant calculation for non-square matrices
+Errors are displayed without crashing the program.
 
- Sample Visualizations
-
-The project generates:
-
-Bar Chart → Distribution of values
-
-Scatter Plot → Relationship between two variables
-
-Heatmap → Correlation between features
-
- Insights & Observations
-
-From the analysis:
-
-The average value of the selected numeric column gives a general idea of the dataset’s central tendency.
-
-The bar chart helps identify the most frequent values.
-
-The scatter plot shows whether two variables are positively/negatively related.
-
-The heatmap highlights which features are strongly correlated and which are independent.
-
-These insights help in understanding sales patterns and relationships between different variables in the retail dataset.
+📸 Sample Output
+Result:
+╒═══════╤═══════╕
+│  6.0  │  8.0  │
+├───────┼───────┤
+│ 10.0  │ 12.0  │
+╘═══════╧═══════╛
 
 Future Improvements
+Add Inverse of a Matrix
+Add Eigenvalues & Eigenvectors
+Add Save/Load matrices from file
+Build a GUI version
 
-Add filtering by product category.
-
-Perform time-series analysis.
-
-Build a dashboard using Streamlit or Power BI.
-
-Apply machine learning for sales prediction.
-
- Author
-
-Z M
-B.Sc Computer Science Student
-Project on Data Analysis using Python
+ Educational Purpose
+This project is great for:
+Understanding matrix mathematics
+Practicing NumPy operations
+Learning Python CLI application development
 
  License
-
-This project is for educational purposes and uses a publicly available dataset from Kaggle.
+This project is open-source and free to use for learning purposes.
