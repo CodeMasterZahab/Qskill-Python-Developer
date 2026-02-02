@@ -1,78 +1,56 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import kagglehub
+import numpy as np
+from tabulate import tabulate # Run 'pip install tabulate' for beautiful tables
 
-# Download latest version
-path = kagglehub.dataset_download("mabubakrsiddiq/retail-store-product-sales-simulation-dataset")
+class MatrixTool:
+    def __init__(self):
+        self.matrices = {}
 
-print("Path to dataset files:", path)
+    def get_matrix_input(self, name):
+        print(f"\n--- Input for Matrix {name} ---")
+        rows = int(input("Enter number of rows: "))
+        cols = int(input("Enter number of columns: "))
+        print(f"Enter elements row by row (space-separated):")
+        elements = []
+        for i in range(rows):
+            row = list(map(float, input(f"Row {i+1}: ").split()))
+            elements.append(row)
+        return np.array(elements)
 
-# -------------------------------
-# 1. Load CSV file
-# -------------------------------
-# Replace 'data.csv' with your file name
-df = pd.read_csv("RetailStoreProductSalesDataset.csv")
+    def display(self, matrix, title="Result"):
+        print(f"\n{title}:")
+        print(tabulate(matrix, tablefmt="fancy_grid"))
 
-# Display first few rows
-print("First 5 rows of dataset:")
-print(df.head())
+    def run(self):
+        while True:
+            print("\n--- MATRIX OPERATIONS TOOL ---")
+            print("1. Add  2. Subtract  3. Multiply  4. Transpose  5. Determinant  6. Exit")
+            choice = input("Select operation: ")
 
-# -------------------------------
-# 2. Basic Data Analysis
-# -------------------------------
-print("\nDataset Information:")
-print(df.info())
+            if choice == '6': break
+            
+            try:
+                if choice in ['1', '2', '3']:
+                    A = self.get_matrix_input("A")
+                    B = self.get_matrix_input("B")
+                    if choice == '1': res = np.add(A, B)
+                    elif choice == '2': res = np.subtract(A, B)
+                    else: res = np.dot(A, B)
+                    self.display(res)
+                
+                elif choice == '4':
+                    A = self.get_matrix_input("A")
+                    self.display(A.T, "Transposed Matrix")
+                
+                elif choice == '5':
+                    A = self.get_matrix_input("A")
+                    if A.shape[0] == A.shape[1]:
+                        det = np.linalg.det(A)
+                        print(f"\n➤ Determinant: {det:.2f}")
+                    else:
+                        print("Error: Determinant requires a square matrix.")
+            except Exception as e:
+                print(f"❌ Error: {e}")
 
-print("\nStatistical Summary:")
-print(df.describe())
-
-# Select a numeric column for average calculation
-column_name = df.select_dtypes(include='number').columns[0]
-average_value = df[column_name].mean()
-
-print(f"\nAverage of '{column_name}': {average_value}")
-
-# -------------------------------
-# 3. Bar Chart
-# -------------------------------
-plt.figure(figsize=(8, 5))
-df[column_name].value_counts().head(10).plot(kind='bar')
-plt.title(f"Bar Chart of {column_name}")
-plt.xlabel(column_name)
-plt.ylabel("Count")
-plt.tight_layout()
-plt.show()
-
-# -------------------------------
-# 4. Scatter Plot
-# -------------------------------
-numeric_cols = df.select_dtypes(include='number').columns
-
-if len(numeric_cols) >= 2:
-    plt.figure(figsize=(8, 5))
-    plt.scatter(df[numeric_cols[0]], df[numeric_cols[1]], alpha=0.7)
-    plt.title(f"Scatter Plot: {numeric_cols[0]} vs {numeric_cols[1]}")
-    plt.xlabel(numeric_cols[0])
-    plt.ylabel(numeric_cols[1])
-    plt.tight_layout()
-    plt.show()
-
-# -------------------------------
-# 5. Heatmap (Correlation Matrix)
-# -------------------------------
-plt.figure(figsize=(8, 6))
-correlation_matrix = df[numeric_cols].corr()
-sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f")
-plt.title("Correlation Heatmap")
-plt.tight_layout()
-plt.show()
-
-# -------------------------------
-# 6. Insights & Observations
-# -------------------------------
-print("\nInsights & Observations:")
-print(f"- The average value of '{column_name}' is {average_value:.2f}.")
-print("- The bar chart shows the distribution of values in the selected column.")
-print("- The scatter plot reveals the relationship between two numeric variables.")
-print("- The heatmap highlights correlations between numeric features.")
+if __name__ == "__main__":
+    tool = MatrixTool()
+    tool.run()
